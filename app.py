@@ -3,12 +3,10 @@ import pandas as pd
 import numpy as np
 import joblib
 
-# 1. Cấu hình giao diện
 st.set_page_config(page_title="Parkinson's Disease Telemonitoring", layout="wide")
 st.title("Dự đoán UPDRS cho bệnh nhân Parkinson")
 st.write("Nhập các chỉ số giọng nói để dự đoán motor_UPDRS và total_UPDRS.")
 
-# 2. Load Models và Scaler
 @st.cache_resource
 def load_artifacts():
     scaler = joblib.load('models/scaler.pkl')
