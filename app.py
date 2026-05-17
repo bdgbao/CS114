@@ -59,8 +59,8 @@ def feature_engineering(raw_df):
     df['Shimmer(avg)'] = df[['Shimmer', 'Shimmer:APQ3', 'Shimmer:APQ5', 'Shimmer:APQ11', 'Shimmer:DDA']].mean(axis=1)
     
     expected_cols = [
-        'age', 'sex', 'test_time', 'Jitter(Abs)', 'Shimmer(dB)', 'NHR', 'HNR', 
-        'RPDE', 'DFA', 'PPE', 'Jitter(avg)', 'Shimmer(avg)'
+        'age', 'test_time', 'Jitter(Abs)', 'Shimmer(dB)', 'NHR', 'HNR', 
+        'RPDE', 'DFA', 'PPE', 'sex', 'Jitter(avg)', 'Shimmer(avg)'
     ]
     
     return df[expected_cols]
@@ -68,10 +68,10 @@ def feature_engineering(raw_df):
 if st.button("Dự đoán UPDRS", type="primary", use_container_width=True):
     
     input_data = pd.DataFrame([{
-        'age': age, 'sex': sex, 'test_time': test_time,
+        'age': age, 'test_time': test_time,
         'Jitter(%)': jitter_percent, 'Jitter(Abs)': jitter_abs, 'Jitter:RAP': jitter_rap, 'Jitter:PPQ5': jitter_ppq5, 'Jitter:DDP': jitter_ddp,
         'Shimmer': shimmer, 'Shimmer(dB)': shimmer_db, 'Shimmer:APQ3': shimmer_apq3, 'Shimmer:APQ5': shimmer_apq5, 'Shimmer:APQ11': shimmer_apq11, 'Shimmer:DDA': shimmer_dda,
-        'NHR': nhr, 'HNR': hnr, 'RPDE': RPDE, 'DFA': DFA, 'PPE': PPE
+        'NHR': nhr, 'HNR': hnr, 'RPDE': RPDE, 'DFA': DFA, 'PPE': PPE, 'sex': sex
     }])
     
     processed_df = feature_engineering(input_data)
