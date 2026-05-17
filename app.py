@@ -3,12 +3,10 @@ import pandas as pd
 import numpy as np
 import joblib
 
-# 1. Cấu hình giao diện
 st.set_page_config(page_title="Parkinson's Disease Telemonitoring", layout="wide")
 st.title("Dự đoán UPDRS cho bệnh nhân Parkinson")
 st.write("Nhập các chỉ số giọng nói để dự đoán motor_UPDRS và total_UPDRS.")
 
-# 2. Load Models và Scaler
 @st.cache_resource
 def load_artifacts():
     scaler = joblib.load('models/scaler.pkl')
@@ -37,22 +35,22 @@ with col1:
 
 with col2:
     st.subheader("Jitter")
-    jitter_percent = st.number_input("Jitter(%)", value=0.006)
-    jitter_abs = st.number_input("Jitter(Abs)", format="%.6f", value=0.000044)
-    jitter_rap = st.number_input("Jitter:RAP", format="%.5f", value=0.003)
-    jitter_ppq5 = st.number_input("Jitter:PPQ5", format="%.5f", value=0.003)
-    jitter_ddp = st.number_input("Jitter:DDP", format="%.5f", value=0.009)
+    jitter_percent = st.number_input("Jitter(%)", format="%.6f", value=0.007395)
+    jitter_abs = st.number_input("Jitter(Abs)", format="%.6f", value=0.000068)
+    jitter_rap = st.number_input("Jitter:RAP", format="%.5f", value=0.007395)
+    jitter_ppq5 = st.number_input("Jitter:PPQ5", format="%.5f", value=0.007395)
+    jitter_ddp = st.number_input("Jitter:DDP", format="%.5f", value=0.007395)
 
 with col3:
     st.subheader("Shimmer & Voice")
-    shimmer = st.number_input("Shimmer", value=0.034)
-    shimmer_db = st.number_input("Shimmer(dB)", value=0.310)
-    shimmer_apq3 = st.number_input("Shimmer:APQ3", value=0.017)
-    shimmer_apq5 = st.number_input("Shimmer:APQ5", value=0.020)
-    shimmer_apq11 = st.number_input("Shimmer:APQ11", value=0.027)
-    shimmer_dda = st.number_input("Shimmer:DDA", value=0.051)
-    nhr = st.number_input("NHR", value=0.032)
-    hnr = st.number_input("HNR", value=21.67)
+    shimmer = st.number_input("Shimmer", format="%.6f", value=0.028110)
+    shimmer_db = st.number_input("Shimmer(dB)", format="%.6f", value=0.27)
+    shimmer_apq3 = st.number_input("Shimmer:APQ3", format="%.6f", value=0.028110)
+    shimmer_apq5 = st.number_input("Shimmer:APQ5", format="%.6f", value=0.028110)
+    shimmer_apq11 = st.number_input("Shimmer:APQ11", format="%.6f", value=0.028110)
+    shimmer_dda = st.number_input("Shimmer:DDA", format="%.6f", value=0.028110)
+    nhr = st.number_input("NHR", format="%.6f", value=0.015734)
+    hnr = st.number_input("HNR", format="%.6f", value=20.326)
 
 def feature_engineering(raw_df):
     df = raw_df.copy()
