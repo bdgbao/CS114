@@ -4,7 +4,7 @@ import numpy as np
 import joblib
 
 st.set_page_config(page_title="Parkinson's Disease Telemonitoring", layout="wide")
-st.title("Dự đoán UPDRS cho bệnh nhân Parkinson")
+st.title("Theo dõi và dự đoán UPDRS cho bệnh nhân Parkinson")
 st.write("Nhập các chỉ số giọng nói để dự đoán motor_UPDRS và total_UPDRS.")
 
 @st.cache_resource
