@@ -28,9 +28,9 @@ with col1:
     st.subheader("Thông tin chung")
     age = st.number_input("Age", min_value=0, max_value=120, value=55)
     test_time = st.number_input("Test Time (days)", min_value=0.0, value=81.731)
-    RPDE = st.number_input("RPDE", format="%.6f", value=0.54)
-    DFA = st.number_input("DFA", format="%.6f", value=0.65)
-    PPE = st.number_input("PPE", format="%.6f", value=0.21)
+    RPDE = st.number_input("RPDE", format="%.6f", value=0.59148)
+    DFA = st.number_input("DFA", format="%.6f", value=0.73197)
+    PPE = st.number_input("PPE", format="%.6f", value=0.310560)
 
 with col2:
     st.subheader("Jitter")
